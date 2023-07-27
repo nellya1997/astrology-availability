@@ -1,0 +1,1146 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Астроклиника Анастасии Якушевой</title>
+  <link rel="stylesheet" href="css/normalize.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
+    crossorigin="anonymous">
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+  <div class="modalBackground">
+    <div class="modalActive">
+      <div class="modalClose"></div>
+      <div class="modalWindow">
+        <form id="formPay" class="needs-validation">
+          <div class="formPay__calculator mb-3">
+            <h3 class="mb-3 fw-bolder">Ваш заказ:</h2>
+              <hr>
+              <div class="formPay__calculator__purchases mb-3"></div>
+              <hr>
+              <div class="text-end mb-4 mt-4 fw-bolder fs-6">
+                Сумма: <span class="formPay__calculator__price">0</span> BYN
+              </div>
+          </div>
+          <div class="mb-3">
+            <label for="namePay" class="visually-hidden">Ваше имя</label>
+            <input type="text" class="form-control" id="namePay" placeholder="Ваше имя*">
+            <div class="mt-2 invalid-feedback">
+              Введите не менее трёх символов
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="surname" class="visually-hidden">Ваша фамилия</label>
+            <input type="text" class="form-control" id="surname" placeholder="Ваша фамилия*">
+            <div class="mt-2 invalid-feedback">
+              Введите не менее трёх символов
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="email" class="visually-hidden">Ваша почта</label>
+            <input type="email" class="form-control" id="email" placeholder="Ваша почта*">
+            <div class="mt-2 invalid-feedback">
+              Введите корректный email
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="phone" class="visually-hidden">Ваш телефон</label>
+            <input type="tel" class="form-control" id="phone" placeholder="Ваш номер телефона*">
+            <div class="mt-2 invalid-feedback">
+              Введите номер с кодом страны
+            </div>
+          </div>
+          <div class="mb-3">
+            <p class="mb-1">Какие мессенджеры подключены к номеру телефона?</p>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input messenger" type="checkbox" id="whatsapp" value="">
+              <label class="form-check-label" for="whatsapp">WhatsApp</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input messenger" type="checkbox" id="telegram" value="">
+              <label class="form-check-label" for="telegram">Telegram</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input messenger" type="checkbox" id="viber" value="">
+              <label class="form-check-label" for="viber">Viber</label>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="socialUrl" class="visually-hidden">Ссылка на вашу социальную сеть</label>
+            <input type="text" class="form-control" id="socialUrl" placeholder="Ссылка на вашу социальную сеть">
+          </div>
+          <div class="mb-3">
+            <label for="birthday" class="col-form-label">Введите Вашу дату рождения*</label>
+            <input type="date" class="form-control w-auto" id="birthday">
+            <div class="mt-2 invalid-feedback">
+              Обязательное поле
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="timeBirthday" class="col-form-label">Введите Ваше время рождения*</label>
+            <input type="time" class="form-control w-auto" id="timeBirthday">
+            <div class="mt-2 invalid-feedback">
+              Обязательное поле
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="locationBirthday" class="visually-hidden">Место рождения</label>
+            <input type="text" class="form-control" id="locationBirthday" placeholder="Ваше место рождения*">
+            <div class="mt-2 invalid-feedback">
+              Введите не менее трёх символов
+            </div>
+          </div>
+          <div class="mb-5">
+            <input class="form-check-input checkbox" type="checkbox" value="" id="acceptPay">
+            <label class="form-check-label text-muted" for="acceptPay">
+              Нажимая на кнопку “Отправить”, Вы даете согласие на <a href="docs/privacy-policy.pdf" class="alert-link" target="_blank">обработку своих персональных данных</a>
+              и ознакомились с <a href="docs/offer.pdf" class="alert-link" target="_blank">публичным договором</a></label>
+            <div class="mt-2 invalid-feedback">
+              Вы должны согласиться на обработку персональных данных.
+            </div>
+          </div>
+          <div class="mb-3">Способ оплаты:</div>
+          <div class="mb-3">
+            <input class="form-check-input" type="radio" name="pay" id="pay1" value="Оплата через ЕРИП: экспресс платежи E-POS" checked>
+            <label class="form-check-label" for="pay1">Оплата через ЕРИП: экспресс платежи E-POS</label>
+          </div>
+          <div class="mb-3">
+            <input class="form-check-input" type="radio" name="pay" id="pay2" value="Оплата картой онлайн (сервис Webpay)">
+            <label class="form-check-label" for="pay2">Оплата картой онлайн (сервис Webpay)</label>
+          </div>
+          <div class="text-end mb-4 fw-bolder fs-6">
+            Сумма: <span class="formPay__calculator__price">0</span> BYN
+          </div>
+          <div class="mb-4 submit__form__button">
+            <input class="focus-ring" type="submit" value="Отправить">
+          </div>
+        </form>
+        <div class="text-center"></div>
+      </div>
+    </div>
+  </div>
+  <div class="cart" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-title="= 0 BYN">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bucket" viewBox="0 0 16 16">
+      <path
+        d="M2.522 5H2a.5.5 0 0 0-.494.574l1.372 9.149A1.5 1.5 0 0 0 4.36 16h7.278a1.5 1.5 0 0 0 1.483-1.277l1.373-9.149A.5.5 0 0 0 14 5h-.522A5.5 5.5 0 0 0 2.522 5zm1.005 0a4.5 4.5 0 0 1 8.945 0H3.527zm9.892 1-1.286 8.574a.5.5 0 0 1-.494.426H4.36a.5.5 0 0 1-.494-.426L2.58 6h10.838z" />
+    </svg>
+    <span class="cart__badge">0</span>
+  </div>
+  <header class="header ">
+    <div class="container">
+      <div class="header__wrapper">
+        <div class="logo">
+          <img src="./icon/logo.svg" aria-label="Логотип" alt="Логотип">
+        </div>
+
+        <nav class="nav">
+
+          <div class="nav__menu">
+            <ul class="nav__list">
+              <li class="nav__list-link"><a href="#client">Кому подойдут услуги </a></li>
+              <li class="nav__list-link"><a href="#about">Обо мне</a></li>
+              <li class="nav__list-link"><a href="#price">Услуги</a></li>
+              <li class="nav__list-link"><a href="#consultation">Консультации</a></li>
+              <li class="nav__list-link"><a href="#feedback">Бонусы</a></li>
+              <li class="nav__list-link"><a href="#submit">С чего начать</a></li>
+              <li class="nav__list-link"><a href="#footer">Контакты</a></li>
+              <li class="nav__list-link"><a href='docs/order-and-payment.pdf' target="_blank">Заказ и оплата</a></li>
+              <li class="nav__list-link--more">
+                <button id="showMoreBtn">Посмотреть еще <span></span></button>
+                <ul class="nav__list--hidden" id="hiddenList">
+                  <!-- Скрытые пункты будут добавлены динамически здесь -->
+                </ul>
+              </li>
+
+              <div class="nav__socials socials">
+
+                <div class="nav__social social">
+                  <a href="#!"><img src="img/social/inst.png" alt=""></a>
+                </div>
+                <div class="nav__social social">
+                  <a href="#!"><img src="img/social/tg.png" alt=""></a>
+                </div>
+                <div class="nav__social social">
+                  <a href="#!"><img src="img/social/vk.png" alt=""></a>
+                </div>
+              </div>
+              <div class="nav__btn btn1 flex-center">
+                <a href="#!">НОМЕР ТЕЛЕФОНА</a>
+              </div>
+            </ul>
+
+            <div class="close"></div>
+          </div>
+        </nav>
+
+
+        <div class="burger">
+          <span></span>
+          <span></span>
+          <span></span>
+
+        </div>
+
+
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="first" id="first">
+      <div class="first__gradient">
+        <div class="first__flex">
+          <div class="container container-none-desktop first__about">
+
+            <div class="first__wrapper-title">
+              <h1 class="title first__title">
+                <span class="first__name">Астроклиника</span>
+                <div class="first__wrapper-h1">
+                  <span class="first__avtor">Анастасии Якушев</span>
+                  <span class="first__letter">й</span>
+                </div>
+
+              </h1>
+            </div>
+          </div>
+
+          <div class="first__wrapper">
+            <div class="first__planet">
+              <picture class="picture">
+                <source type="image/webp" srcset="img/first/content.webp" media="(max-width: 2400px)">
+                <source type="image/png" srcset="img/first/content.png" media="(max-width: 2400px)">
+                <img src="img/atelier/content.png" alt="астроклиника Анастасии Якушевой">
+              </picture>
+            </div>
+
+            <div class="container container--center first__wrapper-link js-link">
+              <div>
+                <a href="#price" class="link first__link ">Записаться</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="container container-none-desktop first__advantages-moving">
+          <div class="first__advantages-wrapper">
+            <div class="first__advantages">
+              <span>&#8470;&nbsp;1&nbsp;в&nbsp;СНГ</span>
+              <span>Проверенная уникальная авторская методика</span>
+            </div>
+            <div class="first__advantages">
+              <span>Только научный подход</span>
+              <span>Западная астрология</span>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+    </section>
+
+    <section class="client" id="client">
+      <div class="container">
+        <div class="client__title title">Кому подойдут услуги астролога</div>
+        <div class="client__text">
+          Астрология изучает влияние на жизнь человека планет и астрономических явлений. <br>Она обращает внимание на
+          самые
+          актуальные сферы в жизни каждого из нас и дает рекомендации, как решить, гармонизировать и проработать
+          возникающие ситуации.
+        </div>
+
+        <div class="swiper__wrapper flex-center">
+          <div class="swiper">
+            <div class="swiper-wrapper">
+
+              <div class="swiper-slide">
+                <div class="swiper-slide-wrapper">
+                  <div class="swiper__slide-title">
+                    Для себя
+                  </div>
+                  <div class="swiper__slide-desc">
+                    <p> Всем, кто хочет раскрыть и развить свои скрытые таланты и способности</p>
+                    <p> У каждого из нас есть способности
+                      и таланты! Ты не исключение!</p>
+                  </div>
+                  <div class="swiper__slide-desc">
+                    <p> Всем, кто хочет понимать, в чем его истинное предназначение и как найти себя</p>
+
+                    <p> Из 1000 дверей войдешь в "ту самую"!</p>
+                  </div>
+                  <div class="swiper__slide-desc">
+                    <p> Всем, кто хочет разобраться в себе и провести анализ над собой и своей жизнью</p>
+
+                    <p> Узнай себя по-новому!</p>
+                  </div>
+                  <div class="swiper__slide-desc">
+                    <p> Всем, кому интересна астрология и всем, кто хотел бы узнать, как она работает</p>
+
+                    <p>Узнай секреты астрологии и получи ответы на свои вопросы!</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="swiper-slide">
+                <div class="swiper-slide-wrapper">
+                  <div class="swiper__slide-title">
+                    Для детей и близких
+                  </div>
+                  <div class="swiper__slide-desc">
+                    <p>Мамам, которые хотят помочь своим детям в поиске и раскрытии их талантов</p>
+
+                    <p> Ваш ребенок уникален и талантлив! Помогите ему раскрыться!</p>
+                  </div>
+                  <div class="swiper__slide-desc">
+                    <p> Людям, которые следят за своим здоровьем и здоровьем своих близких</p>
+
+                    <p>Будь вооружен!</p>
+                  </div>
+                  <div class="swiper__slide-desc">
+                    <p> Мамам, которые хотят грамотно выстроить, укрепить или наладить отношения со своими детьми</p>
+
+                    <p>Дети - наше будущее!</p>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="swiper-slide-wrapper">
+                  <div class="swiper__slide-title">
+                    Для успеха
+                  </div>
+                  <div class="swiper__slide-desc">
+                    <p> Предпринимателям, которые хотят понимать, куда и как двигаться в достижении своей цели</p>
+
+                    <p> Выбери свой правильный путь к успеху!</p>
+                  </div>
+                  <div class="swiper__slide-desc">
+                    <p> Людям, которым кажется, что они сбились с пути, проживая не свою жизнь</p>
+
+                    <p>Познай себя!</p>
+                  </div>
+                  <div class="swiper__slide-desc">
+                    <p>Людям, которые хотят успешно открыть свое дело и которые не понимают, что им нужно для этого
+                      предпринять, как выбрать свою сферу</p>
+
+                    <p> Узнай, в чем твои сильные стороны!</p>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="swiper-slide-wrapper">
+                  <div class="swiper__slide-title">
+                    Для любви
+                  </div>
+                  <div class="swiper__slide-desc">
+                    <p> Людям, находящимся на разных этапах отношений</p>
+
+                    <p>Будь в гармонии с партнером!</p>
+                  </div>
+                  <div class="swiper__slide-desc">
+                    <p> Парам, которые хотят проработать слабые и сильные стороны своей совместимости</p>
+
+                    <p> Узнай, в чем сила ваших отношений!</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+          </div>
+        </div>
+
+        <div class="slider-desktop">
+          <div class="swiper-slide">
+            <div class="swiper-slide-wrapper">
+              <div class="swiper__slide-title">
+                Для себя
+              </div>
+              <div class="swiper__slide-desc">
+                <p> <span>Всем, кто хочет</span> раскрыть и развить свои скрытые таланты и способности</p>
+                <i class="arrow"></i>
+                <p> У каждого из нас есть способности
+                  и таланты! Ты не исключение!</p>
+              </div>
+              <div class="swiper__slide-desc">
+                <p><span>Всем, кто хочет</span> понимать, в чем его истинное предназначение и как найти себя</p>
+                <i class="arrow"></i>
+                <p> Из 1000 дверей войдешь в "ту самую"!</p>
+              </div>
+              <div class="swiper__slide-desc">
+                <p> <span>Всем, кто хочет</span> разобраться в себе и провести анализ над собой и своей жизнью</p>
+                <i class="arrow"></i>
+                <p> Узнай себя по-новому!</p>
+              </div>
+              <div class="swiper__slide-desc">
+                <p> <span>Всем, кому интересна</span> астрология и всем, кто хотел бы узнать, как она работает</p>
+                <i class="arrow"></i>
+                <p>Узнай секреты астрологии и получи ответы на свои вопросы!</p>
+              </div>
+            </div>
+
+
+            <div class="swiper-slide">
+              <div class="swiper-slide-wrapper">
+                <div class="swiper__slide-title">
+                  Для детей и близких
+                </div>
+                <div class="swiper__slide-desc">
+                  <p><span>Мамам, которые хотят</span> помочь своим детям в поиске и раскрытии их талантов</p>
+                  <i class="arrow"></i>
+                  <p> Ваш ребенок уникален и талантлив! Помогите ему раскрыться!</p>
+                </div>
+                <div class="swiper__slide-desc">
+                  <p><span>Мамам, которые хотят</span> грамотно выстроить, укрепить или наладить отношения со своими
+                    детьми</p>
+                    <i class="arrow"></i>
+                  <p>Дети - наше будущее!</p>
+                </div>
+                <div class="swiper__slide-desc">
+                  <p> <span>Людям, которые</span> следят за своим здоровьем и здоровьем своих близких</p>
+                  <i class="arrow"></i>
+                  <p>Будь вооружен!</p>
+                </div>
+
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="swiper-slide-wrapper">
+                <div class="swiper__slide-title">
+                  Для успеха
+                </div>
+                <div class="swiper__slide-desc">
+                  <p><span>Предпринимателям, которые хотят</span> понимать, куда и как двигаться в достижении своей цели
+                  </p>
+                  <i class="arrow"></i>
+                  <p> Выбери свой правильный путь к успеху!</p>
+                </div>
+                <div class="swiper__slide-desc">
+                  <p> <span>Людям, которые</span> кажется, что они сбились с пути, проживая не свою жизнь</p>
+                  <i class="arrow"></i>
+                  <p>Познай себя!</p>
+                </div>
+                <div class="swiper__slide-desc">
+                  <p><span>Людям, которые хотят</span> успешно открыть свое дело и которые не понимают, что им нужно для
+                    этого
+                    предпринять, как выбрать свою сферу</p>
+                  <i class="arrow"></i>
+                  <p> Узнай, в чем твои сильные стороны!</p>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="swiper-slide-wrapper">
+                <div class="swiper__slide-title">
+                  Для любви
+                </div>
+                <div class="swiper__slide-desc">
+                  <p><span>Парам, которые хотят</span> проработать слабые и сильные стороны своей совместимости</p>
+                  <i class="arrow"></i>
+                  <p> Узнай, в чем сила ваших отношений!
+                    Всем, кому интересна астрология и всем, кто хотел бы узнать, как она работает</p>
+                </div>
+                <div class="swiper__slide-desc">
+                  <p> <span>Людям,</span> находящимся на разных этапах отношений</p>
+                  <i class="arrow"></i>
+                  <p>Будь в гармонии с партнером!</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="client__desc">
+          <p>Узнай секреты астрологии и <span>получи ответы</span> на <span>свои вопросы!</span></p>
+          <p> АСТРОЛОГИЯ НУЖНА ВСЕМ!</p>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <section class="about" id="about">
+      <div class="about__wrapper">
+        <div class="container js-about-container">
+          <h2 class="about__title title">Обо мне</h2>
+          <div class="about__dlex-desktop">
+            <div class="about__wrapperNew">
+              <div class="about__item ">
+                <div class="about__item-title">Cоздатель
+                </div>
+                <div class="about__item-subtitle">Астроклиники</div>
+              </div>
+              <div class="about__item">
+                <div class="about__item-title">Знаю секреты
+                </div>
+                <div class="about__item-subtitle">астрологии, которые помогут любому человеку. Без гаданий,
+                  таро, ритуалов, магии и танцев с бубнами!</div>
+              </div>
+              <div class="about__item">
+                <div class="about__item-title">Начала свой путь
+                </div>
+                <div class="about__item-subtitle">к астрологии с детской энциклопедии<br> для
+                  девочек в 9 лет и нашла себя в ней после одной консультации у
+                  астролога</div>
+              </div>
+
+            </div>
+            <div class="about__wrapper-right">
+              <picture class="about__img picture js-about-pic">
+                <source type="image/webp" srcset="./img/about/content1.webp" media="(max-width: 4000px)">
+                <source type="image/png" srcset="./img/about/content1.png" media="(max-width: 4000px)">
+                <img src="./img/about/content1.png" alt="">
+              </picture>
+
+              <div class="about__lead">
+                Продала свой прибыльный салонный бьюти-бизнес и сожгла все мосты ради того, чтобы выполнять свое
+                предназначение - БЫТЬ АСТРОЛОГОМ!
+              </div>
+            </div>
+          </div>
+
+          <div class="about__info">
+            <div class="about__desc">
+              Проработка и гармонизация негативных аспектов в моей жизни ВОЗМОЖНЫ ТОЛЬКО ЧЕРЕЗ АСТРОЛОГИЮ И
+              ПСИХОЛОГИЮ!
+            </div>
+            <div class="about__btn btn1 flex-center">
+              <a href="#!">Связаться с астрологом</a>
+            </div>
+            <div class="about__socials socials">
+
+              <div class="about__social social">
+                <a href="#!"><img src="img/social/inst.png" alt=""></a>
+              </div>
+              <div class="about__social social">
+                <a href="#!"><img src="img/social/tg.png" alt=""></a>
+              </div>
+              <div class="about__social social">
+                <a href="#!"><img src="img/social/vk.png" alt=""></a>
+              </div>
+
+            </div>
+          </div>
+          <div class="about__info-wrapper">
+          </div>
+
+
+
+
+        </div>
+      </div>
+    </section>
+
+    <div class="background-wrapper">
+      <section class="method" id="method">
+        <div class="container">
+          <h2 class="method__title"> <span>Астроклиника</span></h2>
+          <div class="method__border">
+            <p>Уникальный авторский метод астрологии, с помощью которого
+              я консультирую, проверен мною и клиентами и дает замечательные результаты!</p>
+          </div>
+          <div class="method__desc">
+            <p>Помогает каждому человеку выйти на свой личный новый уровень жизни в той сфере, которая для него
+              актуальна.
+              Нужно лишь четко сформулировать свои запросы к астрологу и подобрать подходящую для этого услугу!</p>
+          </div>
+        </div>
+
+      </section>
+
+      <section id="price" class="services">
+        <div class="container">
+          <h2 class="title">Услуги</h2>
+          <div class="services__wrapper">
+
+            <!-- <div class="services__first"> -->
+            <!-- <div class="col-12 col-xl-6"> -->
+            <div class="services__accordion js-accordion">
+              <button class="button button--accordion js-button-accordion">
+                <div class="services__mini">
+                  <h3>Разбор по полной!</h3>
+                  <p>Анализ натальной карты</p>
+                </div>
+                <span></span>
+              </button>
+
+              <div class="services__content">
+                <p>Полный астрологический разбор личности: сильные и&nbsp;слабые характеристики,
+                  внутренний мир и&nbsp;внешняя модель поведения, рекомендации по&nbsp;гармонизации отношений
+                  с&nbsp;самим
+                  собой и&nbsp;своим окружением, проработка слабых сторон личности. </p>
+
+                <p>Таланты и&nbsp;способности: развитие своих способностей, определение скрытых талантов
+                  и&nbsp;рекомендации
+                  по&nbsp;их&nbsp;раскрытию
+                </p>
+                <p>Предназначение и&nbsp;кармическая задача: сферы, рекомендации, задачи жизни, как найти свое
+                  предназначение
+                  и&nbsp;придти к&nbsp;нему
+                </p>
+                <p>Отношения с&nbsp;финансами: сферы, в&nbsp;которых можно финансово приуспеть; рекомендации
+                  по&nbsp;проработке
+                  негативных аспектов, накапливать или тратить
+                </p>
+                <p>Личная жизнь, любовь и&nbsp;отношения: идеальный партнер по&nbsp;натальной карте; возможные варианты
+                  знакомства с&nbsp;ним, каким может быть брак, сильные и&nbsp;слабые стороны в&nbsp;отношениях,
+                  рекомендации
+                  по&nbsp;гармонизации негативных аспектов
+                </p>
+                <p>Здоровье: на&nbsp;что обратить внимание, что дает энергию и&nbsp;наполняет, рекомендации
+                  по&nbsp;проработке
+                  негативных аспектов
+                </p>
+
+                <div class="services__border">
+                  <div class="services__bonus">
+                    <div class="services__bonus-title">
+                      <img src="./icon/gift.svg" alt="Ваш бонус">
+                      <span>БОНУС</span>
+                    </div>
+                    <p>Разбор наиболее важных сфер жизни в ближайшие 2-3 года</p>
+                    <div class="services__result">
+                      <h3>Результат</h3>
+                      <p>Вы&nbsp;получите подробную инструкцию о&nbsp;своей личности: разбор по&nbsp;всем сферам,
+                        рекомендации по&nbsp;самореализации, гармонизации отношений с&nbsp;собой, близкими
+                        и&nbsp;партнером, узнаете о&nbsp;своем предназначении, талантах и&nbsp;будете вооружены
+                        по&nbsp;вопросам здоровья!</p>
+                    </div>
+
+                  </div>
+                </div>
+
+                <div class="services__price">
+                  <span>350 byn</span>
+                  <a class="buy" id="1" href="#!">Купить</a>
+                </div>
+              </div>
+            </div>
+            <div class="services__accordion js-accordion">
+              <button class="button button--accordion js-button-accordion">
+                <div class="services__mini">
+                  <h3>Турбо-ответ</h3>
+                  <p>Экспресс-консультация по ОДНОМУ волнующему вас вопросу</p>
+                </div>
+                <span></span>
+              </button>
+
+              <div class="services__content">
+                <p>Почему не складываются отношения с мужчинами?</p>
+                <p>Стоит ли менять работу?
+                </p>
+                <p>Какую сферу для реализации выбрать?
+                </p>
+
+
+                <div class="services__price">
+                  <span>140 byn</span>
+                  <a class="buy" id="5" href="#!">Купить</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="services__accordion js-accordion">
+              <button class="button button--accordion js-button-accordion">
+                <div class="services__mini">
+                  <h3>Любовь мечты</h3>
+                  <p>Глубокий анализ сферы любви и отношений по вашей натальной карте</p>
+                </div>
+                <span></span>
+              </button>
+
+              <div class="services__content">
+                <p>Ключевые особенности отношений пары: рекомендации по&nbsp;гармонизации отношений, стратегия поведения
+                  в&nbsp;паре</p>
+                <p>Глубокий анализ сферы любви и отношений по вашей натальной
+                  карте
+                </p>
+                <p>Ключевые особенности отношений пары: рекомендации по гармонизации отношений, стратегия поведения в
+                  паре
+
+                </p>
+                <p>Все, что неободимо учитывать при выборе партнера
+                </p>
+                <p>Идеальный партнер: его типаж, характер, отношение к&nbsp;вам. Возможные обстоятельств вашего
+                  знакомства с&nbsp;партнером, сферы пересечения ваших интересов, его ценности и&nbsp;жизненные цели
+                </p>
+                <p>Ошибки, которые вы&nbsp;можете допускать в&nbsp;отношениях с&nbsp;противоположным полом
+                  и&nbsp;рекомендации по&nbsp;их&nbsp;проработке
+                </p>
+                <p>Рекомендации по&nbsp;возможным кризисам партнерства и&nbsp;их&nbsp;проработке
+                </p>
+
+                <div class="services__border">
+                  <div class="services__bonus">
+                    <div class="services__bonus-title">
+                      <img src="./icon/gift.svg" alt="Ваш бонус">
+                      <span>БОНУС</span>
+                    </div>
+                    <p>Разбор важных cфер жизни в ближайшие 2-3 года</p>
+                    <div class="services__result">
+                      <h3>Результат</h3>
+                      <p>Вы&nbsp;получите полный разбор-анализ отношений вашей пары, с&nbsp;помощью которого будете
+                        понимать, как выстраивать гармоничные отношения и&nbsp;быть счастливыми!</p>
+                    </div>
+
+                  </div>
+                </div>
+
+                <div class="services__price">
+                  <span>190 byn</span>
+                  <a class="buy" id="4" href="#!">Купить</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="services__accordion js-accordion">
+              <button class="button button--accordion js-button-accordion">
+                <div class="services__mini">
+                  <h3>Идеальная пара</h3>
+                  <p>Анализ совместимости с партнером</p>
+                </div>
+                <span></span>
+              </button>
+
+              <div class="services__content">
+                <p>Ключевые особенности отношений пары: рекомендации по&nbsp;гармонизации отношений, стратегия поведения
+                  в&nbsp;паре</p>
+                <p>Как проявлять любовь в&nbsp;паре каждому из&nbsp;партнеров по&nbsp;отношению друг к&nbsp;другу
+                </p>
+                <p>Уязвимые сферы в&nbsp;отношениях пары, что может их&nbsp;разрушить, рекомендации по&nbsp;преодолению,
+                  проработке негативных аспектов и&nbsp;конфликтов в&nbsp;паре
+                </p>
+                <p>Отношения с&nbsp;финансами: сферы, в&nbsp;которых можно финансово приуспеть; рекомендации
+                  по&nbsp;проработке
+                  негативных аспектов, накапливать или тратить
+                </p>
+                <p>Рекомендации по&nbsp;сохранению и&nbsp;укреплению отношений в&nbsp;паре
+                </p>
+                <p>Измена, разрыв: есть&nbsp;ли такая вероятность и&nbsp;рекомендации, как этого избежать
+                </p>
+
+                <div class="services__border">
+                  <div class="services__bonus">
+                    <div class="services__bonus-title">
+                      <img src="./icon/gift.svg" alt="Ваш бонус">
+                      <span>БОНУС</span>
+                    </div>
+                    <p>Разбор важных cфер жизни в ближайшие 2-3 года</p>
+                    <div class="services__result">
+                      <h3>Результат</h3>
+                      <p>Вы&nbsp;получите полный разбор-анализ отношений вашей пары, с&nbsp;помощью которого будете
+                        понимать, как выстраивать гармоничные отношения и&nbsp;быть счастливыми!</p>
+                    </div>
+
+                  </div>
+                </div>
+
+                <div class="services__price">
+                  <span>350 byn</span>
+                  <a class="buy" id="3" href="#!">Купить</a>
+                </div>
+              </div>
+            </div>
+            <!-- </div> -->
+            <!-- </div> -->
+
+            <!-- <div class="col-12 col-xl-6"> -->
+            <!-- <div class="services__second"> -->
+            <div class="services__accordion js-accordion">
+              <button class="button button--accordion js-button-accordion">
+                <div class="services__mini">
+                  <h3>Детский гороскоп</h3>
+                  <p>Анализ натальной карты ребёнка</p>
+                </div>
+                <span></span>
+              </button>
+
+              <div class="services__content">
+                <p>Полный астрологический разбор натальной карты ребенка: ключевые особенности характера, внутренний мир
+                  и&nbsp;внешняя модель поведения, восприятие мамы и&nbsp;папы, рекомендации по&nbsp;построению
+                  гармоничных
+                  отношений с&nbsp;ребенком </p>
+                <p>Таланты и&nbsp;способности ребенка: определение талантов, их&nbsp;развитие и&nbsp;реализация,
+                  подходящие сферы для их&nbsp;применения в&nbsp;жизни
+                </p>
+                <p>Предназначение и&nbsp;кармическая задача: сферы, рекомендации, задачи жизни, как найти свое
+                  предназначение и&nbsp;придти к&nbsp;нему
+                </p>
+                <p>Обучение и&nbsp;профориентация: особенности восприятия информации, правильная стратегия обучения,
+                  подходящие профессии, рекомендации по&nbsp;проработке негативных аспектов, которые мешают реализации,
+                  карьера
+                </p>
+                <p>Семейный и&nbsp;финансовый потенциал в&nbsp;будущем
+                </p>
+                <p>Здоровье: на&nbsp;что обратить внимание, что дает энергию и&nbsp;наполняет, рекомендации
+                  по&nbsp;проработке негативных аспектов
+                </p>
+
+                <div class="services__border">
+                  <div class="services__bonus">
+                    <div class="services__bonus-title">
+                      <img src="./icon/gift.svg" alt="Ваш бонус">
+                      <span>БОНУС</span>
+                    </div>
+                    <p>Разбор наиболее актуальных cфер жизни в ближайшие 2-3 года</p>
+                    <div class="services__result">
+                      <h3>Результат</h3>
+                      <p>Вы&nbsp;получите подробную инструкцию о&nbsp;личности вашего ребенка: разбор по&nbsp;самым
+                        важным сферам, рекомендации по&nbsp;обучению, профориентации и&nbsp;самореализации, построению
+                        правильных отношений с&nbsp;окружением; узнаете о&nbsp;его предназначении, талантах
+                        и&nbsp;будете вооружены по&nbsp;любым вопросам его здоровья, а&nbsp;также получите рекомендации
+                        по&nbsp;построению правильных отношений со&nbsp;своим ребенком!</p>
+                    </div>
+
+                  </div>
+                </div>
+
+                <div class="services__price">
+                  <span>290 byn</span>
+                  <a class="buy" id="2" href="#!">Купить</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="services__accordion js-accordion">
+              <button class="button button--accordion js-button-accordion">
+                <div class="services__mini">
+                  <h3>Лестница успеха</h3>
+                  <p>Профориентация, предназначение, профессия и финансы</p>
+                </div>
+                <span></span>
+              </button>
+
+              <div class="services__content">
+                <p>Таланты и способности: развитие своих способностей, определение скрытых талантов и рекомендации по
+                  их раскрытию</p>
+                <p>Предназначение и&nbsp;кармическая задача: сферы, рекомендации, задачи жизни, как найти свое
+                  предназначение и&nbsp;придти к&nbsp;нему
+                </p>
+                <p>Профориентация: сферы профессиональной реализации и&nbsp;способы достижения цели; работа
+                  в&nbsp;найме, бизнес
+                  или самозанятость; рекомендации по&nbsp;проработке негативных аспектов, которые мешают реализации
+                </p>
+                <p>Отношения с&nbsp;финансами: сферы, в&nbsp;которых можно финансово приуспеть; рекомендации
+                  по&nbsp;проработке негативных аспектов, накапливать или тратить
+                </p>
+                <p>Варианты получения финансов: офлайн, онлайн, заграница, муж, родственники; можно&nbsp;ли брать
+                  кредиты</p>
+
+                <div class="services__border">
+                  <div class="services__bonus">
+                    <div class="services__bonus-title">
+                      <img src="./icon/gift.svg" alt="Ваш бонус">
+                      <span>БОНУС</span>
+                    </div>
+                    <p>Пошаговая личная стратегия успеха в&nbsp;карьере/бизнесе, составленная на&nbsp;основе вашего
+                      гороскопа</p>
+                    <div class="services__result">
+                      <h3>Результат</h3>
+                      <p>Вы&nbsp;получите ответы на&nbsp;все вопросы, связанные с&nbsp;вашей
+                        реализацией, предназначением, раскрытием талантов и&nbsp;пр.&nbsp;и&nbsp;узнаете,
+                        каким образом сможете улучшить свое финансовое и&nbsp;профессиональное благополучие.</p>
+                    </div>
+
+                  </div>
+                </div>
+
+                <div class="services__price">
+                  <span>290 byn</span>
+                  <a class="buy" id="6" href="#!">Купить</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="services__accordion js-accordion">
+              <button class="button button--accordion js-button-accordion">
+                <div class="services__mini">
+                  <h3>Незабываемый год</h3>
+                  <p>Подробный анализ вашего личного солярного гороскопа
+                    на&nbsp;год + транзиты</p>
+                </div>
+                <span></span>
+              </button>
+
+              <div class="services__content">
+                <p>Предназначение и&nbsp;кармическая задача: сферы, рекомендации, задачи жизни, как найти свое
+                  предназначение и&nbsp;придти к&nbsp;нему
+                </p>
+                <p>Профориентация: сферы профессиональной реализации и&nbsp;способы достижения цели; работа
+                  в&nbsp;найме, бизнес или самозанятость; рекомендации по&nbsp;проработке негативных аспектов, которые
+                  мешают реализации
+                </p>
+                <p>Отношения с&nbsp;финансами: сферы, в&nbsp;которых можно финансово приуспеть; рекомендации
+                  по&nbsp;проработке негативных аспектов, накапливать или тратить
+
+                </p>
+                <p>Варианты получения финансов: офлайн, онлайн, заграница, муж, родственники; можно&nbsp;ли брать
+                  кредиты
+
+                </p>
+
+                <div class="services__border">
+                  <div class="services__bonus">
+                    <div class="services__bonus-title">
+                      <img src="./icon/gift.svg" alt="Ваш бонус">
+                      <span>БОНУС</span>
+                    </div>
+                    <p>Экспресс-консультация на&nbsp;любую волнующую вас тему</p>
+                    <div class="services__result">
+                      <h3>Результат</h3>
+                      <p>Вы&nbsp;получите свой личный гороскоп на&nbsp;год, узнав о&nbsp;наиболее актуальных
+                        сферах вашего персонального года. Солярный гороскоп&nbsp;—
+                        ваш лучший спутник в&nbsp;НОВОМ ЛИЧНОМ ГОДУ!</p>
+                    </div>
+
+                  </div>
+                </div>
+
+                <div class="services__price">
+                  <span>290 byn</span>
+                  <a class="buy" id="7" href="#!">Купить</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="services__accordion js-accordion">
+              <button class="button button--accordion js-button-accordion">
+                <div class="services__mini">
+                  <h3>Распаковка личности через Архетипы</h3>
+                  <p>Услуга отлично подходит для предпринимаетелей, блогеров,
+                    экспертов
+                    и&nbsp;тех, кто хочет понимать, как правильно проявлять и&nbsp;позиционировать себя перед клиентами,
+                    партнерами, целевой аудиторией, подписчиками и&nbsp;пр
+                  </p>
+                </div>
+                <span></span>
+              </button>
+
+
+              <div class="services__content">
+                <p>Выявление сильных и&nbsp;слабых сторон личности</p>
+                <p>Распаковка личности + распаковка экспертности
+                </p>
+                <p>Определение ведущих архетипов и&nbsp;инструкция по&nbsp;раскрытию лучших сторон своей личности
+                  и&nbsp;экспертности
+                </p>
+                <p>Как проявлять себя, какая сфера лучше всего для этого подойдет
+                </p>
+                <p>Как избежать расфокусировки и&nbsp;расставить правильные приоритеты в&nbsp;жизни и&nbsp;проявлении
+                  себя
+                </p>
+                <p>Рекомендации по&nbsp;стилю: цвета, одежда, аксессуары и&nbsp;пр.
+                </p>
+
+                <div class="services__border">
+                  <div class="services__bonus">
+                    <div class="services__bonus-title">
+                      <img src="./icon/gift.svg" alt="Ваш бонус">
+                      <span>БОНУС</span>
+                    </div>
+                    <p>Разбор наиболее важных сфер жизни в ближайшие 2-3 года</p>
+                    <div class="services__result">
+                      <h3>Результат</h3>
+                      <p>Вы&nbsp;получите подробную инструкцию о&nbsp;своей личности: разбор по&nbsp;всем сферам,
+                        рекомендации по&nbsp;самореализации, гармонизации отношений с&nbsp;собой, близкими
+                        и&nbsp;партнером, узнаете о&nbsp;своем предназначении, талантах и&nbsp;будете вооружены
+                        по&nbsp;вопросам здоровья!</p>
+                    </div>
+
+                  </div>
+                </div>
+
+                <div class="services__price">
+                  <span>350 byn</span>
+                  <a class="buy" id="8" href="#!">Купить</a>
+                </div>
+              </div>
+            </div>
+            <!-- </div> -->
+            <!-- </div> -->
+
+          </div>
+        </div>
+      </section>
+
+      <section class="consultation" id="consultation">
+        <div class="container">
+          <h2 class="consultation__title title">
+            Как проходит консультация
+          </h2>
+
+          <div class="faq accordion js-faq">
+            <button class="button button--faq js-button-faq"><b>Как записаться?</b></button>
+            <div class="faq__panel">
+              <p>Запись через сайт или социальные сети. Сбор необходимой для консультации информации</p>
+            </div>
+          </div>
+
+          <div class="faq accordion js-faq">
+            <button class="button button--faq js-button-faq">
+              <b>Оплата онлайн через ЕРИП или картой онлайн через сайт</b>
+            </button>
+            <div class="faq__panel">
+              <p>Перед оплатой услуги возможна бесплатная консультация-созвон (10-15&nbsp;минут)</p>
+            </div>
+          </div>
+
+          <div class="faq accordion js-faq">
+            <button class="button button--faq js-button-faq">
+              <b>Что дальше?</b>
+            </button>
+            <div class="faq__panel">
+              <p>Подготовка информации для консультации (срок ожидания оговаривается на&nbsp;стадии записи)</p>
+            </div>
+          </div>
+
+          <div class="faq accordion js-faq">
+            <button class="button button--faq js-button-faq">
+              <b>Как будет проходить обратная связь?</b>
+            </button>
+            <div class="faq__panel">
+              <p>Обратная связь по результатам консультации (текстовый вариант, аудиосообщение, созвон)</p>
+            </div>
+          </div>
+
+          <div class="faq accordion js-faq">
+            <button class="button button--faq js-button-faq">
+              <b>Оплата онлайн через ЕРИП или картой онлайн через сайт</b>
+            </button>
+            <div class="faq__panel">
+              <p>Перед оплатой услуги возможна бесплатная консультация-созвон (10-15&nbsp;минут)</p>
+            </div>
+          </div>
+
+          <div class="consultation__link flex-center">
+            <a href="#!" class="link  ">
+              Записаться
+            </a>
+          </div>
+
+        </div>
+      </section>
+
+      <section class="submit mb-10" id="submit">
+        <div class="container">
+          <div class="submit__title title">Остались вопросы?<br>
+            Напишите мне!
+          </div>
+          <form class="submit__form needs-validation">
+            <div class="mb-10">
+              <label for="text" class="visually-hidden">Ваше имя</label>
+              <input type="text" class="form-control submit__form__input" id="name" placeholder="Ваше имя">
+              <div class="mt-2 invalid-feedback">
+                Введите не менее трёх символов
+              </div>
+            </div>
+            <div class="mb-10">
+              <label for="url" class="visually-hidden">Ссылка на вашу социальную сеть</label>
+              <input type="text" class="form-control submit__form__input" id="url" placeholder="Ссылка на вашу социальную сеть">
+              <div class="mt-2 invalid-feedback">
+                Введите не менее трёх символов
+              </div>
+            </div>
+            <div class="mb-10">
+              <label for="message" class="visually-hidden">Ваш вопрос</label>
+              <textarea class="form-control submit__form__input" id="message" placeholder="Ваш вопрос"></textarea>
+              <div class="mt-2 invalid-feedback">
+                Введите не менее трёх символов
+              </div>
+            </div>
+            <div class="mb-10">
+              <input class="form-check-input submit__form__checkbox" type="checkbox" value="" id="accept">
+              <label class="form-check-label" for="accept">
+                Я согласен на <a href="docs/privacy-policy.pdf" class="alert-link" target="_blank">обработку
+                  персональных данных</a>
+              </label>
+              <div class="mt-2 invalid-feedback">
+                Вы должны согласиться на обработку персональных данных.
+              </div>
+            </div>
+            <div class="submit__form__button">
+              <input class="focus-ring" type="submit" value="Отправить">
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <section class="feedback" id="feedback">
+        <div class="feedback-wrapper">
+          <div class="feedback-wrapper__title">
+            <h2>Не знаете с чего начать?</h2>
+            <p>Закажите <span>бесплатную</span> установочную консультацию!</p>
+          </div>
+          <p class="feedback-wrapper__text">
+            На&nbsp;этой консультации обсудим вашу ситуацию и&nbsp;волнующие вас вопросы, подберем подходящую для этого услугу
+          </p>
+          <p class="feedback-wrapper__name">Анастасия Якушева</p>
+          <p class="feedback-wrapper__badge">При записи на&nbsp;бесплатную установочную консультацию пишите кодовое слово -
+            "<span>БК</span>"
+          </p>
+          <picture>
+            <source srcset="./img/feedback/girl.webp" type="image/webp" media="(max-width: 2400px)">
+            <source srcset="./img/feedback/girl.png" type="image/png" media="(max-width: 2400px)">
+            <img src="./img/feedback/girl.png" alt="астроклиника Анастасии Якушевой">
+          </picture>
+          <p class="feedback-wrapper__down">Тысячи человек изменили свою жизнь и&nbsp;вышли на&nbsp;новый уровень!</p>
+        </div>
+      </section>
+    </div>
+
+  </main>
+  <footer class="footer" id="footer">
+    <div class="container">
+      <div class="footer__wrapper">
+        <ul class="footer__list">
+          <li> Индивидуальный предприниматель</li>
+          <li>Якушев Игорь Михайлович</li>
+          <li>УНП 791 264 924</li>
+          <li>Адрес: 212025, Республика Беларусь, Могилевская область, г. Могилев, ул. А. Кулешова, д. 5, кв. 81</li>
+          <li>Свидетельство о государственной регистрации от 18.01.2021 выдано Могилевской Администрацией Ленинского
+            района</li>
+          <li>Телефон: +375 (29) 840−58−16</li>
+          <li>e-mail: astroclinica@gmail.com</li>
+        </ul>
+        <div class="footer__inner">
+          <div class="footer__politic">
+            <a href="docs/privacy-policy.pdf" target="_blank">Политика конфиденциальности</a>
+            <a href='docs/offer.pdf' target="_blank">Договор оферты</a>
+            <a href='docs/order-and-payment.pdf' target="_blank">Заказ и оплата</a>
+          </div>
+          <div class="footer__info-socials socials">
+            <div class="footer__info-social social">
+              <a href="#!"><img src="./img/social/inst.png" alt=""></a>
+            </div>
+            <div class="footer__info-social social">
+              <a href="#!"><img src="./img/social/vk.png" alt=""></a>
+            </div>
+            <div class="footer__info-social social">
+              <a href="#!"><img src="./img/social/tg.png" alt=""></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="routes.js"></script>
+  <script src="modal.js"></script>
+  <script src="data.js"></script>
+  <script src="Cart.js"></script>
+  <script src="cartSwitch.js"></script>
+  <script src="shop.js"></script>
+  <script src="index.js"></script>
+  <script src="showMore.js"></script>
+
+</body>
+
+</html>

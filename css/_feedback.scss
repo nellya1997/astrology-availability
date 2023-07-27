@@ -1,0 +1,228 @@
+$feedbackPadding: calc(0px + 50 * (100vw - 378px) / 1920);
+$PcHeight: 85vh;
+$tabletHeight: 65vh;
+$mobileHeight: 50vh;
+$yellowRatio: 40vh;
+
+.feedback {
+	//height: 100%;
+	text-align: center;
+	padding-top: 3%;
+	position: relative;
+
+	&::before {
+		content: '';
+		background-image: url("../img/feedback/star-left.png");
+		background-repeat: no-repeat;
+		background-size: contain;
+		width: 55%;
+		height: 55%;
+		position: absolute;
+		left: 0;
+		top: 0;
+		bottom: 0;
+		margin: auto;
+	}
+
+	&::after {
+		content: '';
+		background-image: url("../img/feedback/star-right.png");
+		background-repeat: no-repeat;
+		background-size: contain;
+		width: 65%;
+		height: 65%;
+		position: absolute;
+		right: 0;
+		top: 0;
+	}
+
+	&-wrapper {
+		@include centry(96%);
+		position: relative;
+		height: $PcHeight;
+
+		&__title {
+			@include fonty(20px, 400, 20px);
+			width: 60%;
+			position: absolute;
+			top: calc($PcHeight - 104%);
+			right: calc(($PcHeight * 0.675) - 11%);
+
+			h2 {
+				@include fontSizy(17px, 25, 1920);
+				line-height: 100%;
+				font-weight: 600;
+				color: #f5e4f7;
+			}
+
+			p {
+				@include fontSizy(14px, 17, 1920);
+				line-height: 100%;
+				color: $pink;
+				margin: 10px 0;
+
+				span {
+					text-transform: uppercase;
+					font-weight: 700;
+				}
+			}
+		}
+
+		&__text {
+			@include fontSizy(14px, 22, 1920);
+			line-height: 100%;
+			color: #e7d8e8;
+			width: 55%;
+			position: absolute;
+			top: calc($PcHeight - 88%);
+			//чтобы все отображолось по макету я считал соотношение W/H = 0.675;
+			//изза корректировок заказчика двигаем все влево поэтому накидываю к коэф 0.025;
+			right: calc(($PcHeight * 0.675) - 8%);
+		}
+
+		&__name {
+			font-family: $BodegaScript;
+			@include fontSizy(28px, 42, 1920);
+			color: #eebcef;
+			position: absolute;
+			top: calc($PcHeight - 64%);
+			right: calc(($PcHeight * 0.675) + 3%);
+		}
+
+		&__badge {
+			color: white;
+			font-size: calc(14px + 18 * ((100vw - 378px) / 1366));
+			line-height: calc(14px + 18 * ((100vw - 378px) / 1366));
+			width: 68%;
+			position: absolute;
+			top: calc($PcHeight - 52%);
+			right: calc(($PcHeight * 0.675) / 100 * 56);
+			padding: $feedbackPadding;
+			//спорный вопрос стоит ли ограничивать по ширине бейдж т.к. даже на 1920рх он не дотягивает до 1253рх
+			//max-width: 1253px;
+			border: 1px solid white;
+			border-radius: 20px;
+
+
+			span {
+				color: #4c2f5e;
+			}
+		}
+
+		picture {
+			object-fit: contain;
+			display: block;
+			height: inherit;
+
+			img {
+				height: inherit;
+				float: right;
+				position: relative;
+				z-index: 2;
+			}
+		}
+
+		&__down {
+			@include fontSizy(13px, 18, 1920);
+			color: white;
+			font-weight: 700;
+			line-height: 100%;
+			width: 60.5%;
+			position: absolute;
+			top: calc($PcHeight - 27%);
+			right: calc(($PcHeight * 0.675) - 11%)
+		}
+	}
+}
+
+
+@media (max-width: 1024px) {
+	.feedback-wrapper__title {
+		@include fonty(20px, 400, 20px);
+		@include centry(90%);
+		position: static;
+	}
+}
+
+//PC & Phones
+@media (max-width: 768px) {
+	.feedback {
+		&-wrapper {
+			height: $tabletHeight;
+
+			&__text {
+				display: none;
+			}
+
+			&__name {
+				display: none;
+			}
+
+			&__badge {
+				top: calc($tabletHeight - 52%);
+				right: calc(($tabletHeight * 0.675) / 100 * 56);
+			}
+
+			&__down {
+				top: calc($tabletHeight - 27%);
+				right: calc(($tabletHeight * 0.675) / 100 * 56);
+			}
+		}
+	}
+}
+
+@media (max-width: 600px) {
+	.feedback {
+		&-wrapper {
+			height: $mobileHeight;
+
+			&__badge {
+				width: 55%;
+				top: calc($mobileHeight - 52%);
+				right: calc(($mobileHeight * 0.675) / 100 * 56);
+				padding: 5px 10px;
+
+
+				span {
+					color: #F2EDF5;
+				}
+			}
+
+			&__down {
+				width: 100%;
+				position: static;
+				background: #220438;
+				padding: 23px 5px 10px 30px;
+			}
+		}
+	}
+}
+
+//Tablets
+@media (min-width: 600px) and (max-aspect-ratio: 15/16) and (orientation: portrait) {
+	.feedback {
+		&-wrapper {
+			height: $yellowRatio;
+
+			&__text {
+				display: none;
+			}
+
+			&__name {
+				display: block;
+				top: calc($yellowRatio - 80%);
+				right: calc(($yellowRatio * 0.675) - 2%);
+			}
+
+			&__badge {
+				top: calc($yellowRatio - 52%);
+				right: calc(($yellowRatio * 0.675) / 100 * 56);
+			}
+
+			&__down {
+				top: calc($yellowRatio - 27%);
+				right: calc(($yellowRatio * 0.675) / 100 * 56);
+			}
+		}
+	}
+}
