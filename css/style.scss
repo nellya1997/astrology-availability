@@ -1,22 +1,20 @@
-@import "./form";
-@import "./shop";
-@import "./modal";
+@import './form';
+@import './shop';
+@import './modal';
 
 @font-face {
-	font-family: "Montserrat";
-	src:
-		url(../fonts/Montserrat-Regular.woff2) format("woff2"),
-		url(../fonts/Montserrat-Regular.woff) format("woff");
+	font-family: 'Montserrat';
+	src: url(../fonts/Montserrat-Regular.woff2) format('woff2'),
+		url(../fonts/Montserrat-Regular.woff) format('woff');
 	font-weight: normal;
 	font-style: normal;
 	font-display: swap;
 }
 
 @font-face {
-	font-family: "BodegaScript";
-	src:
-		url(../fonts/BodegaScript.woff2) format("woff2"),
-		url(../fonts/BodegaScript.woff) format("woff");
+	font-family: 'BodegaScript';
+	src: url(../fonts/BodegaScript.woff2) format('woff2'),
+		url(../fonts/BodegaScript.woff) format('woff');
 	font-weight: normal;
 	font-style: normal;
 }
@@ -38,7 +36,7 @@ $superlightpink: rgba(231, 216, 232, 0.2);
 
 // переменная со шрифтом
 
-$BodegaScript: "BodegaScript", "font", sans-serif;
+$BodegaScript: 'BodegaScript', 'font', sans-serif;
 
 // переменные feedback
 //$feedbackPadding: calc(0px + 50 * (100vw - 378px) / 1920);
@@ -78,7 +76,7 @@ html {
 }
 
 body {
-	font-family: "Montserrat", "font", sans-serif;
+	font-family: 'Montserrat', 'font', sans-serif;
 	font-weight: 500;
 	font-size: 14px;
 	line-height: 14px;
@@ -206,7 +204,7 @@ button {
 	.first__planet &:after,
 	.first__planet &::before {
 		position: absolute;
-		content: "";
+		content: '';
 		top: 0;
 		left: 0;
 		width: 100%;
@@ -230,57 +228,55 @@ button {
 
 // Навигация
 .nav {
-	&__menu {
-		z-index: 15;
-		height: 100vh;
-		top: -2px;
-		border-radius: 0px 0px 20px 20px;
-		background: #7b4b83;
-		position: fixed;
-		right: -100%;
-		width: 100%;
-		text-align: center;
-		transition: 0.3s;
+	z-index: 15;
+	height: 100vh;
+	top: -2px;
+	border-radius: 0px 0px 20px 20px;
+	background: #7b4b83;
+	position: fixed;
+	right: -100%;
+	width: 100%;
+	text-align: center;
+	transition: 0.3s;
 
-		& .close {
+	& .close {
+		position: absolute;
+		top: 24px;
+		right: 14px;
+		width: 33px;
+		height: 30px;
+		cursor: pointer;
+
+		&::after,
+		&::before {
 			position: absolute;
-			top: 24px;
-			right: 14px;
-			width: 33px;
-			height: 30px;
-			cursor: pointer;
-
-			&::after,
-			&::before {
-				position: absolute;
-				top: 0;
-				right: 0;
-				content: "";
-				width: 33px;
-				height: 4px;
-				border-radius: 8px;
-				margin: 5px auto;
-				background-color: $light-pink;
-				transition: all 0.3s ease-in-out;
-				transform: translateY(8px) rotate(45deg);
-			}
-
-			&::before {
-				transform: translateY(8px) rotate(-45deg);
-			}
-		}
-
-		&.active {
+			top: 0;
 			right: 0;
-			height: 100vh;
+			content: '';
+			width: 33px;
+			height: 4px;
+			border-radius: 8px;
+			margin: 5px auto;
+			background-color: $light-pink;
+			transition: all 0.3s ease-in-out;
+			transform: translateY(8px) rotate(45deg);
 		}
 
-		&__title {
-			color: #523960;
-			font-family: Montserrat;
-			font-size: 22px;
-			font-weight: 700;
+		&::before {
+			transform: translateY(8px) rotate(-45deg);
 		}
+	}
+
+	&.active {
+		right: 0;
+		height: 100vh;
+	}
+
+	&__title {
+		color: #523960;
+		font-family: Montserrat;
+		font-size: 22px;
+		font-weight: 700;
 	}
 
 	.btn1 a {
@@ -352,9 +348,7 @@ button {
 	opacity: 0;
 	height: 0;
 	overflow: hidden;
-	transition:
-		opacity 0.3s ease,
-		height 0.3s ease;
+	transition: opacity 0.3s ease, height 0.3s ease;
 
 	.nav__list-link {
 		pointer-events: none;
@@ -385,7 +379,7 @@ button {
 
 		&::before {
 			position: absolute;
-			content: "";
+			content: '';
 			top: 50%;
 			transform: translate(-50%, -50%) rotate(45deg);
 			left: auto;
@@ -393,14 +387,12 @@ button {
 			width: 16px;
 			height: 2px;
 			background-color: #fff;
-			transition:
-				background-color 0.2s ease-in,
-				transform 0.2s ease-in;
+			transition: background-color 0.2s ease-in, transform 0.2s ease-in;
 		}
 
 		&::after {
 			position: absolute;
-			content: "";
+			content: '';
 			top: 50%;
 			left: 29px;
 			transform: translate(-50%, -50%) rotate(-45deg);
@@ -408,9 +400,7 @@ button {
 			width: 16px;
 			height: 2px;
 			background-color: #fff;
-			transition:
-				background-color 0.2s ease-in,
-				transform 0.2s ease-in;
+			transition: background-color 0.2s ease-in, transform 0.2s ease-in;
 		}
 
 		&.rotate::before {
@@ -496,7 +486,7 @@ button {
 		&::after,
 		&::before {
 			z-index: 1;
-			content: "";
+			content: '';
 			position: absolute;
 			top: -414px;
 			left: 0px;
@@ -546,7 +536,7 @@ button {
 			background: url(../icon/upiter.svg) no-repeat;
 			background-size: 44%;
 			background-position: 91% 51%;
-			content: "";
+			content: '';
 			width: 243px;
 			/* z-index: 20; */
 			height: 100%;
@@ -558,8 +548,12 @@ button {
 			left: 0;
 			width: 100%;
 			height: 20%;
-			background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0), #220438);
-			content: "";
+			background-image: linear-gradient(
+				to bottom,
+				rgba(255, 255, 255, 0),
+				#220438
+			);
+			content: '';
 			z-index: 11;
 		}
 	}
@@ -588,7 +582,7 @@ button {
 			background: #220438;
 			width: 100%;
 			height: 454%;
-			content: "";
+			content: '';
 		}
 	}
 
@@ -684,8 +678,8 @@ button {
 
 		::after {
 			position: absolute;
-			content: "";
-			background: url("../img/client/client-planet.png") no-repeat;
+			content: '';
+			background: url('../img/client/client-planet.png') no-repeat;
 			background-position: bottom right;
 			background-size: contain;
 			bottom: 0;
@@ -699,7 +693,7 @@ button {
 			margin-bottom: 20px;
 
 			&:before {
-				content: ("");
+				content: ('');
 				background-image: url(../img/client/icon-desc.png);
 				right: -43%;
 				left: 0;
@@ -740,7 +734,7 @@ button {
 				.swiper__slide-title {
 					&::before {
 						position: absolute;
-						content: "";
+						content: '';
 						top: -13px;
 						right: 19%;
 						width: 29px;
@@ -755,7 +749,7 @@ button {
 				.swiper__slide-title {
 					&::before {
 						position: absolute;
-						content: "";
+						content: '';
 						top: -13px;
 						left: 10%;
 						width: 29px;
@@ -770,7 +764,7 @@ button {
 				.swiper__slide-title {
 					&::before {
 						position: absolute;
-						content: "";
+						content: '';
 						top: -13px;
 						right: 19%;
 						width: 29px;
@@ -785,7 +779,7 @@ button {
 				.swiper__slide-title {
 					&::before {
 						position: absolute;
-						content: "";
+						content: '';
 						top: -13px;
 						left: 10%;
 						width: 29px;
@@ -826,7 +820,7 @@ button {
 				margin-bottom: 100px;
 
 				&::after {
-					content: url("../img/client/arrow.png");
+					content: url('../img/client/arrow.png');
 					left: 0;
 					right: 0;
 					margin: 0 auto;
@@ -946,7 +940,7 @@ button {
 
 // background-wrapper
 .background-wrapper {
-	background: url("../img/bg/bg.png") no-repeat;
+	background: url('../img/bg/bg.png') no-repeat;
 	background-size: cover; //баг исчезает только с cover!
 }
 
@@ -964,7 +958,7 @@ button {
 		position: relative;
 
 		&::before {
-			content: "";
+			content: '';
 			position: absolute;
 			background: url(../img/client/star.png);
 			background-size: contain;
@@ -1000,7 +994,7 @@ button {
 
 		::after {
 			position: absolute;
-			content: "";
+			content: '';
 			border-radius: 883px;
 			opacity: 0.30000001192092896;
 			background: #e7d8e8;
@@ -1051,7 +1045,7 @@ button {
 		// width: 155%;
 		:nth-child(1)::before {
 			position: absolute;
-			content: "";
+			content: '';
 			background: url(../img/icon/icon1.svg) no-repeat;
 			width: 28px;
 			height: 28px;
@@ -1092,7 +1086,7 @@ button {
 
 		&::before {
 			position: absolute;
-			content: url("../img/about/mob-content.png");
+			content: url('../img/about/mob-content.png');
 			right: 18px;
 			top: -26px;
 		}
@@ -1141,7 +1135,7 @@ button {
 		&::after,
 		&::before {
 			position: absolute;
-			content: "";
+			content: '';
 			top: 50%;
 			left: 11px;
 			/* transform: translate(-50%, -50%) rotate(-45deg); */
@@ -1149,9 +1143,7 @@ button {
 			width: 12px;
 			height: 2px;
 			background-color: $purple;
-			transition:
-				background-color 0.3s ease-in,
-				transform 0.3s ease-in;
+			transition: background-color 0.3s ease-in, transform 0.3s ease-in;
 		}
 
 		&::before {
@@ -1189,7 +1181,7 @@ button {
 
 		&::before,
 		&::after {
-			content: "";
+			content: '';
 			width: 25px;
 			height: 4px;
 			border-radius: 42px;
@@ -1219,9 +1211,7 @@ button {
 		opacity: 0;
 		overflow: hidden;
 		color: $superlightpurple;
-		transition:
-			max-height 0.2s ease-out,
-			opacity 0.2s ease-out;
+		transition: max-height 0.2s ease-out, opacity 0.2s ease-out;
 
 		& p {
 			padding-left: 53px;
@@ -1247,7 +1237,7 @@ button {
 	&__title {
 		color: #fff;
 		text-align: center;
-		font-family: "BodegaScript", "font", sans-serif;
+		font-family: 'BodegaScript', 'font', sans-serif;
 		font-size: 45px;
 		font-weight: 500;
 		line-height: 0.4;
@@ -1263,7 +1253,7 @@ button {
 		margin-bottom: 30px;
 
 		&::before {
-			content: "";
+			content: '';
 			background-image: url(./../icon/chatlove.svg);
 			background-repeat: no-repeat;
 			background-size: 100%;
@@ -1319,7 +1309,7 @@ button {
 
 		h3 {
 			color: #e8afec;
-			font-family: "BodegaScript", "font", sans-serif;
+			font-family: 'BodegaScript', 'font', sans-serif;
 			@include fontSizy(27px, 22, 1920);
 			font-style: normal;
 			font-weight: 500;
@@ -1333,9 +1323,7 @@ button {
 		opacity: 0;
 		overflow: hidden;
 		will-change: max-height;
-		transition:
-			max-height 0.3s ease-in,
-			opacity 0.3s ease-in;
+		transition: max-height 0.3s ease-in, opacity 0.3s ease-in;
 		// padding-top: 30px;
 		padding: 0 24px;
 
@@ -1432,9 +1420,7 @@ button {
 			line-height: 0.8;
 			position: relative;
 			top: 0;
-			transition:
-				background-color 0.3s,
-				top 0.3s ease-in;
+			transition: background-color 0.3s, top 0.3s ease-in;
 
 			&:hover {
 				background-color: #cfa6ee;
@@ -1515,7 +1501,7 @@ button {
 	}
 }
 
-@import "./feedback";
+@import './feedback';
 
 .footer {
 	background: #220438;
@@ -1665,6 +1651,17 @@ button {
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
+		white-space: nowrap;
+		height: inherit;
+		padding: inherit;
+		top: inherit;
+		border-radius: inherit;
+		background: inherit;
+		position: inherit;
+		right: inherit;
+		width: inherit;
+		text-align: inherit;
+		transition: 0.3s;
 
 		&__socials {
 			display: none;
@@ -1674,26 +1671,12 @@ button {
 			display: none;
 		}
 
-		&__menu {
-			white-space: nowrap;
-			height: inherit;
-			padding: inherit;
-			top: inherit;
-			border-radius: inherit;
-			background: inherit;
-			position: inherit;
-			right: inherit;
-			width: inherit;
-			text-align: inherit;
-			transition: 0.3s;
+		a {
+			margin: inherit;
+		}
 
-			a {
-				margin: inherit;
-			}
-
-			&.active {
-				right: 0;
-			}
+		&.active {
+			right: 0;
 		}
 
 		&__list {
@@ -1778,7 +1761,7 @@ button {
 				background: #220438;
 				width: 124%;
 				height: 10%;
-				content: "";
+				content: '';
 			}
 		}
 
@@ -1795,8 +1778,12 @@ button {
 				left: 0;
 				width: 100%;
 				height: 20%;
-				background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0), #220438);
-				content: "";
+				background-image: linear-gradient(
+					to bottom,
+					rgba(255, 255, 255, 0),
+					#220438
+				);
+				content: '';
 				z-index: 11;
 			}
 		}
@@ -1969,15 +1956,19 @@ button {
 
 			&::before {
 				position: absolute;
-				content: url("../img/about/content.png");
+				content: url('../img/about/content.png');
 				right: inherit;
 				top: -62px;
 				left: -59px;
 			}
 
 			&::after {
-				content: "";
-				background-color: linear-gradient(180deg, #220438 0%, #452a54 100%);
+				content: '';
+				background-color: linear-gradient(
+					180deg,
+					#220438 0%,
+					#452a54 100%
+				);
 			}
 		}
 
@@ -2218,11 +2209,11 @@ button {
 
 				.arrow::after {
 					content: '';
-						background-image: url("../img/client/arrow-desktop.png");
-						background-size: contain;
-						width: 18.96vw;
-						height: 1.75vw;
-						display: block;
+					background-image: url('../img/client/arrow-desktop.png');
+					background-size: contain;
+					width: 18.96vw;
+					height: 1.75vw;
+					display: block;
 				}
 			}
 
@@ -2288,7 +2279,7 @@ button {
 		&__title {
 			color: #fff;
 			text-align: center;
-			font-family: "BodegaScript", "font", sans-serif;
+			font-family: 'BodegaScript', 'font', sans-serif;
 			font-size: 50px;
 			font-weight: 500;
 			line-height: 0.4;
@@ -2303,7 +2294,7 @@ button {
 			margin-bottom: 30px;
 
 			&::before {
-				content: "";
+				content: '';
 				background-image: url(./../icon/chatlove.svg);
 				background-repeat: no-repeat;
 				background-size: 100%;
@@ -2380,7 +2371,7 @@ button {
 		display: none;
 	}
 
-/*	.client .swiper__slide-desc {
+	/*	.client .swiper__slide-desc {
 		justify-content: space-between;
 		align-items: start;
 		display: flex;
@@ -2404,197 +2395,194 @@ button {
 		}
 	} */
 
-		.about {
-			&__item {
-				&:nth-child(2) {
-					max-width: 800px;
-				}
-			}
-
-			&__wrapper {
-				background-position: center right -84%;
-				background-size: 80%;
-			}
-
-			&__dlex-desktop {
-				margin-bottom: 0;
-			}
-
-			&__desc {
-				text-align: left;
-			}
-
-			&__btn {
-				align-items: first baseline;
-			}
-
-			&__img {
-				background-size: 80%;
-				background-position: right 21% top 45%;
-
-				::after {
-					width: 70%;
-					height: 610px;
-					right: 7%;
-					bottom: 2%;
-				}
-			}
-
-			&__info {
-				padding-top: 30px;
-			}
-
-			& .socials {
-				// align-items: start;
-				justify-content: flex-start;
-			}
-
-			&__wrapper-right .picture {
-				height: calc(100vh - 307px);
+	.about {
+		&__item {
+			&:nth-child(2) {
+				max-width: 800px;
 			}
 		}
 
-		.burger {
+		&__wrapper {
+			background-position: center right -84%;
+			background-size: 80%;
+		}
+
+		&__dlex-desktop {
+			margin-bottom: 0;
+		}
+
+		&__desc {
+			text-align: left;
+		}
+
+		&__btn {
+			align-items: first baseline;
+		}
+
+		&__img {
+			background-size: 80%;
+			background-position: right 21% top 45%;
+
+			::after {
+				width: 70%;
+				height: 610px;
+				right: 7%;
+				bottom: 2%;
+			}
+		}
+
+		&__info {
+			padding-top: 30px;
+		}
+
+		& .socials {
+			// align-items: start;
+			justify-content: flex-start;
+		}
+
+		&__wrapper-right .picture {
+			height: calc(100vh - 307px);
+		}
+	}
+
+	.burger {
+		display: none;
+	}
+
+	// Навигация
+	.nav {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		height: inherit;
+		padding: inherit;
+		top: inherit;
+		border-radius: inherit;
+		background: inherit;
+		position: inherit;
+		right: inherit;
+		width: inherit;
+		text-align: inherit;
+		transition: 0.3s;
+
+		&__socials {
 			display: none;
 		}
 
-		// Навигация
-		.nav {
+		&__btn {
+			display: none;
+		}
+
+		a {
+			margin: inherit;
+		}
+
+		&.active {
+			right: 0;
+		}
+
+		&__list {
+			padding-top: 0px;
+			padding-left: 40px;
 			display: flex;
-			justify-content: space-between;
-			align-items: center;
+			flex-direction: row;
+			justify-content: center;
+			align-items: start;
+			// gap: 30px;
+			padding-bottom: 0;
+			padding-top: 0;
+			gap: 32px;
+		}
 
-			&__socials {
-				display: none;
+		&__list-link {
+			color: #fff;
+			font-size: 20px;
+
+			// &::before {
+			// 	position: relative;
+			// 	content: url(/img/header/icon.png);
+			// }
+			&:hover {
+				color: $light-pink;
 			}
 
-			&__btn {
-				display: none;
-			}
-
-			&__menu {
-				height: inherit;
-				padding: inherit;
-				top: inherit;
-				border-radius: inherit;
-				background: inherit;
-				position: inherit;
-				right: inherit;
+			&:nth-child(7) {
+				text-align: left;
 				width: inherit;
-				text-align: inherit;
-				transition: 0.3s;
-
-				a {
-					margin: inherit;
-				}
-
-				&.active {
-					right: 0;
-				}
+				// padding: 0 0 0 30px;
+				border-radius: inherit;
+				border: none;
 			}
 
-			&__list {
-				padding-top: 0px;
-				padding-left: 40px;
-				display: flex;
-				flex-direction: row;
-				justify-content: center;
-				align-items: start;
-				// gap: 30px;
-				padding-bottom: 0;
-				padding-top: 0;
-				gap: 32px;
+			&:nth-child(8) {
+				color: #8e7a98;
+				display: none;
 			}
 
-			&__list-link {
-				color: #fff;
-				font-size: 20px;
-
-				// &::before {
-				// 	position: relative;
-				// 	content: url(/img/header/icon.png);
-				// }
-				&:hover {
-					color: $light-pink;
-				}
-
-				&:nth-child(7) {
-					text-align: left;
-					width: inherit;
-					// padding: 0 0 0 30px;
-					border-radius: inherit;
-					border: none;
-				}
-
-				&:nth-child(8) {
-					color: #8e7a98;
-					display: none;
-				}
-
-				&:nth-child(9) {
-					color: #8e7a98;
-					display: none;
-				}
-			}
-		}
-
-		.first {
-			&__name {
-				font-size: 77px;
-				// line-height: px;
-				line-height: 58px;
-				text-align: initial;
-			}
-
-			&__wrapper-h1 {
-				justify-content: start;
-			}
-
-			&__wrapper-title .title {
-				padding-bottom: 10px;
-			}
-
-			&__avtor,
-			&__letter {
-				font-size: 35px;
-				line-height: 41px;
-				padding-right: 21px;
-				margin-right: 2px;
-				background-size: 19px 36px;
-			}
-
-			&__advantages-moving {
-				padding: 0;
-			}
-
-			&__about,
-			&__wrapper {
-				width: calc(50% - 10px);
-			}
-		}
-
-		.services {
-			&__first {
-				.services__accordion:last-child {
-					min-height: 150px;
-
-					.button--accordion {
-						margin-top: 30px;
-					}
-				}
-			}
-
-			&__second {
-				.services__accordion:last-child {
-					min-height: 150px;
-				}
-			}
-
-			&__mini {
-				width: 90%;
+			&:nth-child(9) {
+				color: #8e7a98;
+				display: none;
 			}
 		}
 	}
+
+	.first {
+		&__name {
+			font-size: 77px;
+			// line-height: px;
+			line-height: 58px;
+			text-align: initial;
+		}
+
+		&__wrapper-h1 {
+			justify-content: start;
+		}
+
+		&__wrapper-title .title {
+			padding-bottom: 10px;
+		}
+
+		&__avtor,
+		&__letter {
+			font-size: 35px;
+			line-height: 41px;
+			padding-right: 21px;
+			margin-right: 2px;
+			background-size: 19px 36px;
+		}
+
+		&__advantages-moving {
+			padding: 0;
+		}
+
+		&__about,
+		&__wrapper {
+			width: calc(50% - 10px);
+		}
+	}
+
+	.services {
+		&__first {
+			.services__accordion:last-child {
+				min-height: 150px;
+
+				.button--accordion {
+					margin-top: 30px;
+				}
+			}
+		}
+
+		&__second {
+			.services__accordion:last-child {
+				min-height: 150px;
+			}
+		}
+
+		&__mini {
+			width: 90%;
+		}
+	}
+}
 
 @media (min-width: 1920px) {
 	.nav__list-link:nth-child(6),
@@ -2705,7 +2693,7 @@ button {
 		&__title {
 			color: #fff;
 			text-align: center;
-			font-family: "BodegaScript", "font", sans-serif;
+			font-family: 'BodegaScript', 'font', sans-serif;
 			font-size: 50px;
 			font-weight: 500;
 			line-height: 0.4;
@@ -2721,7 +2709,7 @@ button {
 			//width: 90%;
 
 			&::before {
-				content: "";
+				content: '';
 				background-image: url(./../icon/chatlove.svg);
 				background-repeat: no-repeat;
 				background-size: 100%;

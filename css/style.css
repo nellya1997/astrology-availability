@@ -19,6 +19,9 @@
   margin: 0 auto;
   color: #e8afec;
 }
+.submit__form ::-moz-placeholder {
+  color: #e8afec;
+}
 .submit__form ::placeholder {
   color: #e8afec;
 }
@@ -40,7 +43,8 @@
   border: 1px solid #E7D8E8;
   background: rgba(142, 122, 152, 0.2);
   filter: drop-shadow(0px 5px 10px #523960);
-  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
   padding: 12px 20px;
 }
 .submit__form__input:focus {
@@ -455,7 +459,8 @@ button {
 .picture img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 .first__planet .picture:after, .first__planet .picture::before {
   position: absolute;
@@ -478,7 +483,7 @@ button {
   overflow-y: hidden;
 }
 
-.nav__menu {
+.nav {
   z-index: 15;
   height: 100vh;
   top: -2px;
@@ -490,7 +495,7 @@ button {
   text-align: center;
   transition: 0.3s;
 }
-.nav__menu .close {
+.nav .close {
   position: absolute;
   top: 24px;
   right: 14px;
@@ -498,7 +503,7 @@ button {
   height: 30px;
   cursor: pointer;
 }
-.nav__menu .close::after, .nav__menu .close::before {
+.nav .close::after, .nav .close::before {
   position: absolute;
   top: 0;
   right: 0;
@@ -511,14 +516,14 @@ button {
   transition: all 0.3s ease-in-out;
   transform: translateY(8px) rotate(45deg);
 }
-.nav__menu .close::before {
+.nav .close::before {
   transform: translateY(8px) rotate(-45deg);
 }
-.nav__menu.active {
+.nav.active {
   right: 0;
   height: 100vh;
 }
-.nav__menu__title {
+.nav__title {
   color: #523960;
   font-family: Montserrat;
   font-size: 22px;
@@ -661,7 +666,6 @@ button {
   border-radius: 8px;
   margin: 5px auto;
   background-color: #f4dff5;
-  -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
 }
 .burger.active span:nth-child(2) {
@@ -793,7 +797,8 @@ button {
 .first__wrapper .picture img {
   position: relative;
   z-index: 10;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .first__advantages {
   display: flex;
@@ -1106,7 +1111,8 @@ button {
   max-width: 50%;
 }
 .about__img {
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   position: relative;
   height: 210px;
   background: url(../img/about/about-bg.png) no-repeat;
@@ -1481,6 +1487,7 @@ button {
 }
 .consultation__link .link {
   font-size: 28px;
+  width: -moz-max-content;
   width: max-content;
   padding: 16px;
 }
@@ -1503,7 +1510,8 @@ button {
 }
 .services__border .services__bonus-title {
   display: flex;
-  column-gap: 10px;
+  -moz-column-gap: 10px;
+       column-gap: 10px;
   align-items: center;
   text-align: center;
   margin: 30px auto;
@@ -1616,7 +1624,8 @@ button {
   color: #4c2f5e;
 }
 .feedback-wrapper picture {
-  object-fit: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
   display: block;
   height: inherit;
 }
@@ -1747,7 +1756,8 @@ button {
 
 @media (min-width: 377px) {
   .first__wrapper .picture img {
-    object-fit: contain;
+    -o-object-fit: contain;
+       object-fit: contain;
   }
 }
 @media (min-width: 475px) {
@@ -1813,14 +1823,6 @@ button {
     display: flex;
     justify-content: space-between;
     align-items: center;
-  }
-  .nav__socials {
-    display: none;
-  }
-  .nav__btn {
-    display: none;
-  }
-  .nav__menu {
     white-space: nowrap;
     height: inherit;
     padding: inherit;
@@ -1833,10 +1835,16 @@ button {
     text-align: inherit;
     transition: 0.3s;
   }
-  .nav__menu a {
+  .nav__socials {
+    display: none;
+  }
+  .nav__btn {
+    display: none;
+  }
+  .nav a {
     margin: inherit;
   }
-  .nav__menu.active {
+  .nav.active {
     right: 0;
   }
   .nav__list {
@@ -2115,7 +2123,8 @@ button {
   }
   .services__border .services__bonus-title {
     display: flex;
-    column-gap: 10px;
+    -moz-column-gap: 10px;
+         column-gap: 10px;
     align-items: center;
     text-align: center;
     margin: 30px auto;
@@ -2370,28 +2379,28 @@ button {
     display: none;
   }
   /*	.client .swiper__slide-desc {
-  		justify-content: space-between;
-  		align-items: start;
-  		display: flex;
-  		margin-bottom: 0px;
+  	justify-content: space-between;
+  	align-items: start;
+  	display: flex;
+  	margin-bottom: 0px;
 
-  		p:nth-child(1) {
-  			position: relative;
-  			margin-bottom: 100px;
+  	p:nth-child(1) {
+  		position: relative;
+  		margin-bottom: 100px;
 
-  			&::after {
-  				content: url("../img/client/arrow-desktop.png");
-  				left: 107%;
-  				right: 0;
-  				zoom: 90%;
-  				margin: inherit;
-  				top: 4%;
-  				width: 23.7vw;
-  				height: 2.19vw;
-  				position: absolute;
-  			}
+  		&::after {
+  			content: url("../img/client/arrow-desktop.png");
+  			left: 107%;
+  			right: 0;
+  			zoom: 90%;
+  			margin: inherit;
+  			top: 4%;
+  			width: 23.7vw;
+  			height: 2.19vw;
+  			position: absolute;
   		}
-  	} */
+  	}
+  } */
   .about__item:nth-child(2) {
     max-width: 800px;
   }
@@ -2434,14 +2443,6 @@ button {
     display: flex;
     justify-content: space-between;
     align-items: center;
-  }
-  .nav__socials {
-    display: none;
-  }
-  .nav__btn {
-    display: none;
-  }
-  .nav__menu {
     height: inherit;
     padding: inherit;
     top: inherit;
@@ -2453,10 +2454,16 @@ button {
     text-align: inherit;
     transition: 0.3s;
   }
-  .nav__menu a {
+  .nav__socials {
+    display: none;
+  }
+  .nav__btn {
+    display: none;
+  }
+  .nav a {
     margin: inherit;
   }
-  .nav__menu.active {
+  .nav.active {
     right: 0;
   }
   .nav__list {
@@ -2660,6 +2667,4 @@ button {
     font-size: 28px;
     line-height: 1.3;
   }
-}
-
-/*# sourceMappingURL=style.css.map */
+}/*# sourceMappingURL=style.css.map */
