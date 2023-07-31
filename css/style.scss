@@ -1550,6 +1550,17 @@ button {
 	}
 }
 
+.footer::after {
+		content: '';
+		display: block;
+		background-image: url('../img/footer/logo.png');
+		background-size: contain;
+		background-repeat: no-repeat;
+		background-position: center center;
+		height: 2vh;
+		margin: 0 1em;
+}
+
 @media (min-width: 377px) {
 	.first__wrapper .picture img {
 		object-fit: contain;
@@ -1565,6 +1576,10 @@ button {
 		&__img {
 			height: 310px;
 		}
+	}
+
+	.footer::after {
+		height: 3vh;
 	}
 }
 
@@ -1613,6 +1628,11 @@ button {
 		&__wrapper-link .link {
 			width: 50%;
 		}
+	}
+
+	.footer::after {
+		height: 4vh;
+		margin: 0 2em;
 	}
 }
 
@@ -2352,6 +2372,11 @@ button {
 			justify-content: space-between;
 			align-items: start;
 			gap: 40px;
+		}
+
+		&::after {
+			height: 10vh;
+			margin: 0 3em;
 		}
 	}
 }
